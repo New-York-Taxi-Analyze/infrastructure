@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  kafka-manager:
+    image: moech/kafka-manager:3.0.0.5-arm64
+    hostname: kafka-manager
+    container_name: kafka-manager
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: "zookeeper:2181"
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
